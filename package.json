@@ -7,20 +7,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
+    "pm2": "pm2 start index.js -l --log",
     "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bgutils-js": "^3.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "jsdom": "^26.1.0",
     "node-fetch": "^3.3.2",
     "nodemon": "^3.1.4",
-    "youtubei.js": "github:LuanRT/YouTube.js"
-  },
-  "engines": {
-    "node": "18.x"
+    "pm2": "^6.0.5",
+    "youtubei.js": "^13.4.0"
   }
 }

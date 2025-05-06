@@ -2,19 +2,15 @@ import express from "express";
 import cors from "cors";
 import fetch from "node-fetch";
 import { Innertube } from "youtubei.js";
-import dotenv from "dotenv";
-
-dotenv.config();
+import { getPoToken } from "./utils/getPoToken.js";
 
 const app = express();
 const port = 3000;
 
 app.use(cors());
 
-const visitor_data = process.env.VISITOR_DATA;
-const po_token = process.env.PO_TOKEN;
-
 app.get("/stream/:videoId", async (req, res) => {
+  const { po_token, visitor_data } = await getPoToken();
   const youtube = await Innertube.create({ visitor_data, po_token });
   try {
     const videoId = req.params.videoId;
